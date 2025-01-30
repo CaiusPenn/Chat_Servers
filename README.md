@@ -1,6 +1,6 @@
-#Chat Server and Client Application
+# Chat Server and Client Application
 
-##Overview
+## Overview
 This program implements a multi-threaded chat server and client system. The chat server manages multiple channels that can be configured through a configuration file. Clients can connect to the server on a specified port that represents a channel, send messages, share files, whisper to other users, and perform various commands. The server and client communicate using TCP socket connections.
 
 ## Features
