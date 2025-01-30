@@ -25,4 +25,23 @@ The client will prompt for a username and allow the user to choose a channel to 
 
 ### chatserver.py
 
+- **read_config_file(filename)**: Reads the configuration file and extracts channel information (name, port, and capacity).
+- **setup(channel_info)**: Sets up a channel based on the given configuration.
+- **handle_client(channel_name, sock, max_capacity)**: Manages client connections and the operations for a given channel.
+- **client_whisper(data, channel_name, conn, channels, username)**: Handles the `/whisper` command to send a private message to another user in the same channel.
+- **client_switch(data, channel_name, conn, channels, username)**: Allows a client to switch to a different channel.
+- **quit_management(channel_name, conn, channels, username, waiting_queue, command)**: Manages client disconnections (quitting or being kicked from channels).
+- **server_commands()**: Handles admin commands such as `/shutdown`, `/kick`, `/empty`, and `/mute`.
+- **empty(emptying_channel)**: Sends a command to disconnect all users from the specified channel.
+- **main()**: Initializes the server, reads the configuration, and sets up the channels. It also starts server command threads.
+
 ### chatclient.py
+
+- **receive_messages(sock, username)**: Receives and processes messages from the server.
+- **send_messages(sock, username)**: Sends messages to the server.
+- **client_switch(port, username)**: Allows the client to switch to a new channel.
+- **client_quit(sock, username, command)**: Disconnects the client from the server.
+- **client_empty(sock)**: Closes the client's connection when the server empties the channel.
+- **client_muted(muted_time)**: Handles the client’s muted state and its duration.
+- **client_afk(sock, username)**: Kicks the client for being idle for too long.
+- **main()**: Initializes the client connection, handles switching channels, and processes user commands.
